@@ -1,36 +1,59 @@
-# 说明
+
+# Description
+
+[切换到中文版](./README_CN.md)
 
 ---
 
-## F40
-  
+## FX300
+
+* VU5P-based FPGA accelerator card development suite
+
+* Interfaces available for each FPGA accelerator card are as follows:
+  - `One PCIe 3.0 x8` interface    
+  - `Two DDR4` RDIMM interfaces
+  - `Two 100 Gbit/s` Ethernet interfaces 
+
+* PCIe features are as follows:
+    - `Two physical functions (PFs)`
+    - `PF0` is for users. The size of Bar0 is 32 MB, and the size of Bar1 is 64 KB.
+    - `PF1` is for management. The size of Bar0 space is 32 MB, and the size of Bar1 is 128 KB.
+
+* Interface features between user logic and static logic are as follows:
+    - The data channel from user logic to static logic uses the AXI4-MM interface with a bit width of `512 bits`.
+    - The control channel from user logic to static logic uses the AXI4-Lite interface with a bit width of `32 bits`.
 
 
-* 基于VU5P的FPGA加速卡的开发套件
+* The DDR interface partition is as follows:
+  - Two DDR controllers are placed in the user logic partition.
+  - A maximum of two DDR controllers can be used.
 
-* 每个FPGA加速卡可以使用的主要接口如下：
-  - `1个pcie gen3 x8 `接口    
-  - `2个ddr4` RDIMM接口
-  - `2个100Gbps` 以太网接口 
+* Based on the SDx 2017.4.op software platform and support for the development and design of the `C/C++/OpenCL` language.
 
-* PCIE支持的特性：
-    - `2个PF`(physical function)
-    - `PF0`供用户使用，Bar0空间大小为32MB，Bar1空间大小为64KB
-    - `PF1`管理侧使用，Bar0空间大小为32MB，Bar1空间大小为128KB
-   
-* 用户逻辑和静态逻辑之间的接口特性:
-    - 用户逻辑和静态逻辑之间的数据通道是`512 bit`位宽的AXI4-MM接口
-    - 用户逻辑和静态逻辑之间的控制通道是`32 bit`位宽的AXI4-Lite接口
+* For details, see [README](./FX300/sdaccel/README.md).
+
+## FX600
+
+* Interfaces available for each FPGA accelerator card are as follows:
+  - `One PCIe 3.0 x16` interface    
+  - `Four DDR4` RDIMM interfaces
+  - `Two 100 Gbit/s` Ethernet interfaces 
+
+* PCIe features are as follows:
+    - `Two physical functions (PFs)`
+    - `PF0` is for users. The size of Bar0 is 32 MB, and the size of Bar1 is 64 KB.
+    - `PF1` is for management. The size of Bar0 space is 32 MB, and the size of Bar1 is 128 KB.
+
+* Interface features between user logic and static logic are as follows:
+    - The data channel from user logic to static logic uses the AXI4-MM interface with a bit width of `512 bits`.
+    - The control channel from user logic to static logic uses the AXI4-Lite interface with a bit width of `32 bits`.
+
+* The DDR interface partition is as follows:
+  - Four DDR controllers are placed in the user logic partition.
+  - A maximum of four DDR controllers can be used.
+
+* Provides FLASH CTRL, HWICAP CTRL, and IIC MASTER components and example projects.
 
 
-* DDR接口划分：
-  - 2个DDR控制器放置在用户逻辑部分
-  - 支持用户最多使用`2个DDR控制器`
 
-* 基于SDx 2017.4.op软件平台，支持`c/c++/opencl`语言开发设计
 
-* 详细使用方法见：[README](./F40/sdaccel/README_CN.md)
-
-## F100
-
-* 提供的是基于华为VU9P的F100 FPGA卡的开发套件 (待开放)
